@@ -1,0 +1,8 @@
+points,team, game number,
+p:points,pp:points,ppp:points,pppp:points,ppppp:points,pppppp:points,ppppppp:points,pppppppp:points,ppppppppp:points,pppppppppp:points,
+field goals attempted, field goals made,fouls,o:fouls,
+free throws attempted, free throws made,
+three pointers attempted, three pointers made, 
+wins,
+o:team, o:wins, 
+o:points,op:points,opp:points,oppp:points,opppp:points,oppppp:points,opppppp:points,oppppppp:points,opppppppp:points,oppppppppp:points,opppppppppp:points,site@season=2015
