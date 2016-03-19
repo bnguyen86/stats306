@@ -51,34 +51,34 @@ abline(lm(points ~ fouls, data=dat), col="red")
 plot(points ~ ofouls, data=dat, xlab="ofouls", ylab="Points", pch=20)
 abline(lm(points ~ ofouls, data=dat), col="red")
 
-plot(points ~ X2points, data=dat, xlab="Previous 2 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X2points, data=dat), col="red")
+plot(points ~ freethrowsattempted, data=dat, xlab="freethrowsattempted", ylab="Points", pch=20)
+abline(lm(points ~ freethrowsattempted, data=dat), col="red")
 
-plot(points ~ X1points, data=dat, xlab="Previous 1 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X1points, data=dat), col="red")
+plot(points ~ freethrowsmade, data=dat, xlab="freethrowsmade", ylab="Points", pch=20)
+abline(lm(points ~ freethrowsmade, data=dat), col="red")
 
-plot(points ~ X2points, data=dat, xlab="Previous 2 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X2points, data=dat), col="red")
+plot(points ~ threepointersattempted, data=dat, xlab="threepointersattempted", ylab="Points", pch=20)
+abline(lm(points ~ threepointersattempted, data=dat), col="red")
 
-plot(points ~ X1points, data=dat, xlab="Previous 1 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X1points, data=dat), col="red")
+plot(points ~ threepointersmade, data=dat, xlab="threepointersmade", ylab="Points", pch=20)
+abline(lm(points ~ threepointersmade, data=dat), col="red")
 
 dev.off()
 
 png("scatterplots3.png", width=1920, height=1920)
 par(mfrow=c(3,3))
 
-plot(points ~ X1points, data=dat, xlab="Previous 1 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X1points, data=dat), col="red")
+plot(points ~ wins, data=dat, xlab="wins", ylab="Points", pch=20)
+abline(lm(points ~ wins, data=dat), col="red")
 
-plot(points ~ X2points, data=dat, xlab="Previous 2 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X2points, data=dat), col="red")
+plot(points ~ owins, data=dat, xlab="owins", ylab="Points", pch=20)
+abline(lm(points ~ owins, data=dat), col="red")
 
-plot(points ~ X1points, data=dat, xlab="Previous 1 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X1points, data=dat), col="red")
+plot(points ~ opoints, data=dat, xlab="opoints", ylab="Points", pch=20)
+abline(lm(points ~ opoints, data=dat), col="red")
 
-plot(points ~ X2points, data=dat, xlab="Previous 2 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X2points, data=dat), col="red")
+plot(points ~ o1points, data=dat, xlab="o1points", ylab="Points", pch=20)
+abline(lm(points ~ o1points, data=dat), col="red")
 
 plot(points ~ X1points, data=dat, xlab="Previous 1 Game Points", ylab="Points", pch=20)
 abline(lm(points ~ X1points, data=dat), col="red")
