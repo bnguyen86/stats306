@@ -1,5 +1,7 @@
 options(na.action=na.omit)
 dat <-read.table("dataset.txt", header=T)
+previous10.home = (dat$X1points + dat$X2points + dat$X3points + dat$X4points + dat$X5points + dat$X6points + dat$X7points + dat$X8points + dat$X9points + dat$X10points)/10
+previous10.away = (dat$o1points + dat$o2points + dat$o3points + dat$o4points + dat$o5points + dat$o6points + dat$o7points + dat$o8points + dat$o9points + dat$o10points)/10
 
 png("scatterplots1.png", width=1920, height=1920)
 par(mfrow=c(3,3))
@@ -118,13 +120,10 @@ abline(lm(points ~ o10points, data=dat), col="red")
 plot(points ~ site, data=dat, xlab="site", ylab="Points", pch=20)
 abline(lm(points ~ site, data=dat), col="red")
 
-plot(points ~ X1points, data=dat, xlab="Previous 1 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X1points, data=dat), col="red")
+plot(points ~ previous10.home, data=dat, xlab="previous10.home", ylab="Points", pch=20)
+abline(lm(points ~ previous10.home, data=dat), col="red")
 
-plot(points ~ X2points, data=dat, xlab="Previous 2 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X2points, data=dat), col="red")
-
-plot(points ~ X1points, data=dat, xlab="Previous 1 Game Points", ylab="Points", pch=20)
-abline(lm(points ~ X1points, data=dat), col="red")
+plot(points ~ previous10.away, data=dat, xlab="previous10.away", ylab="Points", pch=20)
+abline(lm(points ~ previous10.away, data=dat), col="red")
 
 dev.off()
