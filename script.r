@@ -3,6 +3,9 @@ dat <-read.table("dataset.txt", header=T)
 previous10.home = (dat$X1points + dat$X2points + dat$X3points + dat$X4points + dat$X5points + dat$X6points + dat$X7points + dat$X8points + dat$X9points + dat$X10points)/10
 previous10.away = (dat$o1points + dat$o2points + dat$o3points + dat$o4points + dat$o5points + dat$o6points + dat$o7points + dat$o8points + dat$o9points + dat$o10points)/10
 
+dat$previous10.home <- previous10.home;
+dat$previous10.away <- previous10.away;
+
 png("scatterplots1.png", width=1920, height=1920)
 par(mfrow=c(3,3))
 
@@ -53,16 +56,16 @@ abline(lm(points ~ fouls, data=dat), col="red")
 plot(points ~ ofouls, data=dat, xlab="ofouls", ylab="Points", pch=20)
 abline(lm(points ~ ofouls, data=dat), col="red")
 
-plot(points ~ freethrowsattempted, data=dat, xlab="freethrowsattempted", ylab="Points", pch=20)
+plot(points ~ freethrowsattempted, data=dat, xlab="Free Throws Attempted", ylab="Points", pch=20)
 abline(lm(points ~ freethrowsattempted, data=dat), col="red")
 
-plot(points ~ freethrowsmade, data=dat, xlab="freethrowsmade", ylab="Points", pch=20)
+plot(points ~ freethrowsmade, data=dat, xlab="Free Throws Made", ylab="Points", pch=20)
 abline(lm(points ~ freethrowsmade, data=dat), col="red")
 
-plot(points ~ threepointersattempted, data=dat, xlab="threepointersattempted", ylab="Points", pch=20)
+plot(points ~ threepointersattempted, data=dat, xlab="Three Pointers Attempted", ylab="Points", pch=20)
 abline(lm(points ~ threepointersattempted, data=dat), col="red")
 
-plot(points ~ threepointersmade, data=dat, xlab="threepointersmade", ylab="Points", pch=20)
+plot(points ~ threepointersmade, data=dat, xlab="Three Pointers Made", ylab="Points", pch=20)
 abline(lm(points ~ threepointersmade, data=dat), col="red")
 
 dev.off()
@@ -70,60 +73,83 @@ dev.off()
 png("scatterplots3.png", width=1920, height=1920)
 par(mfrow=c(3,3))
 
-plot(points ~ wins, data=dat, xlab="wins", ylab="Points", pch=20)
+plot(points ~ wins, data=dat, xlab="Wins", ylab="Points", pch=20)
 abline(lm(points ~ wins, data=dat), col="red")
 
-plot(points ~ owins, data=dat, xlab="owins", ylab="Points", pch=20)
+plot(points ~ owins, data=dat, xlab="Opponents Wins", ylab="Points", pch=20)
 abline(lm(points ~ owins, data=dat), col="red")
 
-plot(points ~ opoints, data=dat, xlab="opoints", ylab="Points", pch=20)
+plot(points ~ opoints, data=dat, xlab="Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ opoints, data=dat), col="red")
 
-plot(points ~ o1points, data=dat, xlab="o1points", ylab="Points", pch=20)
+plot(points ~ o1points, data=dat, xlab="Previous 1 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o1points, data=dat), col="red")
 
-plot(points ~ o2points, data=dat, xlab="o2points", ylab="Points", pch=20)
+plot(points ~ o2points, data=dat, xlab="Previous 2 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o2points, data=dat), col="red")
 
-plot(points ~ o3points, data=dat, xlab="o3points", ylab="Points", pch=20)
+plot(points ~ o3points, data=dat, xlab="Previous 3 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o3points, data=dat), col="red")
 
-plot(points ~ o4points, data=dat, xlab="o4points", ylab="Points", pch=20)
+plot(points ~ o4points, data=dat, xlab="Previous 4 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o4points, data=dat), col="red")
 
-plot(points ~ o4points, data=dat, xlab="o4points", ylab="Points", pch=20)
+plot(points ~ o4points, data=dat, xlab="Previous 5 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o4points, data=dat), col="red")
 
-plot(points ~ o5points, data=dat, xlab="o5points", ylab="Points", pch=20)
-abline(lm(points ~ o5points, data=dat), col="red")
+plot(points ~ o6points, data=dat, xlab="Previous 6 Game Opponents Points", ylab="Points", pch=20)
+abline(lm(points ~ o6points, data=dat), col="red")
 
 dev.off()
 
 png("scatterplots4.png", width=1920, height=1920)
 par(mfrow=c(3,3))
 
-plot(points ~ o6points, data=dat, xlab="o6points", ylab="Points", pch=20)
-abline(lm(points ~ o6points, data=dat), col="red")
-
-plot(points ~ o7points, data=dat, xlab="o7points", ylab="Points", pch=20)
+plot(points ~ o7points, data=dat, xlab="Previous 7 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o7points, data=dat), col="red")
 
-plot(points ~ o8points, data=dat, xlab="o8points", ylab="Points", pch=20)
+plot(points ~ o8points, data=dat, xlab="Previous 8 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o8points, data=dat), col="red")
 
-plot(points ~ o9points, data=dat, xlab="o9points", ylab="Points", pch=20)
+plot(points ~ o9points, data=dat, xlab="Previous 9 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o9points, data=dat), col="red")
 
-plot(points ~ o10points, data=dat, xlab="o10points", ylab="Points", pch=20)
+plot(points ~ o10points, data=dat, xlab="Previous 10 Game Opponents Points", ylab="Points", pch=20)
 abline(lm(points ~ o10points, data=dat), col="red")
 
-plot(points ~ site, data=dat, xlab="site", ylab="Points", pch=20)
+plot(points ~ site, data=dat, xlab="Home/Away", ylab="Points", pch=20)
 abline(lm(points ~ site, data=dat), col="red")
 
-plot(points ~ previous10.home, data=dat, xlab="previous10.home", ylab="Points", pch=20)
+plot(points ~ previous10.home, data=dat, xlab="Average Points in Previous 10 Games", ylab="Points", pch=20)
 abline(lm(points ~ previous10.home, data=dat), col="red")
 
-plot(points ~ previous10.away, data=dat, xlab="previous10.away", ylab="Points", pch=20)
+plot(points ~ previous10.away, data=dat, xlab="Average Points in Opponents Previous 10 Games", ylab="Points", pch=20)
 abline(lm(points ~ previous10.away, data=dat), col="red")
 
+plot(points ~ oteam, data=dat, xlab="Opposing Team", ylab="Points", pch=20)
+abline(lm(points ~ oteam, data=dat), col="red")
+
 dev.off()
+
+# Use leaps to find best model
+library(leaps)
+
+# TODO: need to exclude some variables
+# https://cran.r-project.org/web/packages/leaps/leaps.pdf
+# either define the variables that we want using x= or force out some variables
+s1<- regsubsets(points~., data=dat, method="exhaustive", really.big=T)
+ss1 <- summary(s1)
+
+#This table can be accessed directly via 
+ss1$which
+#where "TRUE" is in the place of "*"
+
+#Get the adjusted R^2 of each model
+ss1$adjr2
+which.max(ss1$adjr2)
+#Best model is with 6 variables according to adj-R^2
+
+#Get the cp of each model
+ss1$cp
+which.min(ss1$cp)
+#Best model is with 6 variables according to Cp
