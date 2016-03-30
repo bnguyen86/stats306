@@ -131,12 +131,18 @@ abline(lm(points ~ oteam, data=dat), col="red")
 
 dev.off()
 
-# TODO: needs fixing
-qqplot(lm(points ~X1points, data=dat), main="QQ Plot")
-qqplot(lm(points ~X4points, data=dat), main="QQ Plot")
-qqplot(lm(points ~X7points, data=dat), main="QQ Plot")
-qqplot(lm(points ~X10points, data=dat), main="QQ Plot")
-qqplot(lm(points ~fouls, data=dat), main="QQ Plot")
+library(car)
+
+png("qq4.png", width=1920, height=1920)
+par(mfrow=c(3,3))
+
+qqPlot(lm(points ~X1points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~X4points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~X7points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~X10points, data=dat), main="QQ Plot")
+
+dev.off()
+
 
 # Use leaps to find best model
 library(leaps)
