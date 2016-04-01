@@ -6,6 +6,10 @@ previous10.away = (dat$o1points + dat$o2points + dat$o3points + dat$o4points + d
 dat$previous10.home <- previous10.home;
 dat$previous10.away <- previous10.away;
 
+# remove columns that are not needed
+dat$game = NULL
+dat$team = NULL
+
 png("scatterplots1.png", width=1920, height=1920)
 par(mfrow=c(3,3))
 
@@ -133,7 +137,7 @@ dev.off()
 
 library(car)
 
-png("qq4.png", width=1920, height=1920)
+png("qqplots.png", width=1920, height=1920)
 par(mfrow=c(3,3))
 
 qqPlot(lm(points ~X1points, data=dat), main="QQ Plot")
