@@ -170,3 +170,53 @@ which.max(ss1$adjr2)
 ss1$cp
 which.min(ss1$cp)
 #Best model is with 6 variables according to Cp
+
+######################################
+##Leave-one-out Cross validaion.
+######################################
+
+#Function to calculate the leave-one-out cross validation error.
+ls.cvrmse <- function(ls.out)
+# Compute the leave-one-out cross-validated root mean squared error of prediction.
+# Handles missing values.
+# ls.out is a fitted regression model from lsreg or lm.
+# (c) Copyright William J. Welch 1997
+{
+  res.cv <- ls.out$residuals / (1.0 - ls.diag(ls.out)$hat)
+  # Identify NA's and remove them.
+  is.na.res <- is.na(res.cv)
+  res.cv <- res.cv[!is.na.res]
+  cvrmse <- sqrt(sum(res.cv^2) / length(res.cv))
+  return(cvrmse)
+}
+
+
+#Compare the full model and best model found by regsubsets
+dat2<-dat[,-35]
+dat2 <-dat2[-35]
+names(dat2)
+fullModel <- lm(points~., data=dat2)
+summary(fullModel)
+#best model based on adjusted R^2
+bestModeladj <- lm(points~fieldgoalsmade+freethrowsmade+threepointersmade, data=dat)
+# best model based on Mallow's cp
+bestModelcp <- lm(points~dat$X1points+X2points+X3points+X4points+X5points+fieldgoalsmade+freethrowsmade+threepointersmade, data=dat)
+summary(bestModeladj)
+summary(bestModelcp)
+
+#Calculate the leave-one-out CV RMSE for the full model
+fullModel.cvrmse <- ls.cvrmse(fullModel)
+
+#Calculate the leave-one-out CV RMSE for the best models via regsubsets
+bestModeladj.cvrmse <- ls.cvrmse(bestModeladj)
+bestModelcp.cvrmse <- ls.cvrmse(bestModelcp)
+
+print(c(fullModel.cvrmse, bestModeladj.cvrmse))
+which.min(c(fullModel.cvrmse, bestModeladj.cvrmse))
+print(c(fullModel.cvrmse, bestModelcp.cvrmse))
+which.min(c(fullModel.cvrmse, bestModelcp.cvrmse))
+which.min(c(bestModeladj.cvrmse, bestModelcp.cvrmse))
+#The best model has smaller cvrmse
+#Result : bestModeladj.cvrmse has a smaller cvrmse compare to fullModel
+# bestModelcp.cvrmse has a smaller cvrmse compare to fullModel
+# bestModeladj.cvrmse has the smallest cvrmse out of all three
