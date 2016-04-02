@@ -137,13 +137,62 @@ dev.off()
 
 library(car)
 
-png("qqplots.png", width=1920, height=1920)
+png("qqplots1.png", width=1920, height=1920)
 par(mfrow=c(3,3))
 
 qqPlot(lm(points ~X1points, data=dat), main="QQ Plot")
 qqPlot(lm(points ~X4points, data=dat), main="QQ Plot")
 qqPlot(lm(points ~X7points, data=dat), main="QQ Plot")
 qqPlot(lm(points ~X10points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~fouls, data=dat), main="QQ Plot")
+qqPlot(lm(points ~freethrowsmade, data=dat), main="QQ Plot")
+qqPlot(lm(points ~wins, data=dat), main="QQ Plot")
+qqPlot(lm(points ~opoints, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o3points, data=dat), main="QQ Plot")
+
+dev.off()
+
+png("qqplots2.png", width=1920, height=1920)
+par(mfrow=c(3,3))
+
+qqPlot(lm(points ~o6points, data=dat), main="QQ Plot") 
+qqPlot(lm(points ~o9points, data=dat), main="QQ Plot") 
+qqPlot(lm(points ~previous10.home, data=dat), main="QQ Plot") 
+qqPlot(lm(points ~X2points, data=dat), main="QQ Plot")    
+qqPlot(lm(points ~X5points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~X8points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~fieldgoalsattempted, data=dat), main="QQ Plot") 
+qqPlot(lm(points ~ofouls, data=dat), main="QQ Plot")
+qqPlot(lm(points ~site, data=dat), main="QQ Plot")
+
+dev.off()
+
+png("qqplots3.png", width=1920, height=1920)
+par(mfrow=c(3,3))
+
+qqPlot(lm(points ~threepointersattempted, data=dat), main="QQ Plot")
+qqPlot(lm(points ~oteam, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o1points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o4points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o7points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o10points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~previous10.away, data=dat), main="QQ Plot")
+qqPlot(lm(points ~X3points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~X6points, data=dat), main="QQ Plot")
+
+dev.off()
+
+png("qqplots4.png", width=1920, height=1920)
+par(mfrow=c(3,3))
+
+qqPlot(lm(points ~X9points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~fieldgoalsmade, data=dat), main="QQ Plot")
+qqPlot(lm(points ~freethrowsattempted, data=dat), main="QQ Plot")
+qqPlot(lm(points ~threepointersmade, data=dat), main="QQ Plot")
+qqPlot(lm(points ~owins, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o2points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o5points, data=dat), main="QQ Plot")
+qqPlot(lm(points ~o8points, data=dat), main="QQ Plot")
 
 dev.off()
 
