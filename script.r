@@ -269,3 +269,16 @@ which.min(c(bestModeladj.cvrmse, bestModelcp.cvrmse))
 #Result : bestModeladj.cvrmse has a smaller cvrmse compare to fullModel
 # bestModelcp.cvrmse has a smaller cvrmse compare to fullModel
 # bestModeladj.cvrmse has the smallest cvrmse out of all three
+
+library(hydroGOF)
+actual <-c(70, 80, 81, 82, 83)
+predF = predict(fullModel,interval = "prediction", se.fit = TRUE)
+predR = predict(bestModeladj,interval = "prediction", se.fit = TRUE)
+predC = predict(bestModelcp,interval = "prediction", se.fit = TRUE)
+predRv <- c(predR$fit[1:5])
+predFv <- c(predF$fit[1:5])
+predCv <- c(predC$fit[1:5])
+mseF = mse(predFv, actual)
+mseR = mse(predRv,actual)
+mseC = mse(predCv, actual)
+mseF;mseR;mseC
